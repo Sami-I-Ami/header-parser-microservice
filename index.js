@@ -26,13 +26,11 @@ app.get('/api/hello', function (req, res) {
 
 // header parser endpoint
 app.get('/api/whoami', function (req, res) {
-
-  
   // output
   res.json({
-    ipaddress: "placeholder",
-    language: "placeholder",
-    software: "placeholder"
+    ipaddress: req.ip,
+    language: req.headers['accept-language'],
+    software: req.headers['user-agent']
   });
 });
 
